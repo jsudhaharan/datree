@@ -24,7 +24,7 @@ type WarningInfo struct {
 	Caption     string
 	Occurrences int
 	Suggestion  string
-	Matches		[]*cliClient.Match
+	Matches     []*cliClient.Match
 }
 
 type InvalidYamlInfo struct {
@@ -198,7 +198,7 @@ func (p *Printer) printSkippedPolicyCheck() {
 func (p *Printer) getStringOrNotAvailable(str string) string {
 	if str == "" {
 		return "N/A"
-	}else{
+	} else {
 		return str
 	}
 }
