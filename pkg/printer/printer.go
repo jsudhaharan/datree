@@ -83,7 +83,13 @@ func (p *Printer) PrintWarnings(warnings []Warning) {
 			fmt.Println()
 
 			for _, details := range warning.Details {
-				formattedOccurrences := fmt.Sprintf(" [%d occurrences]", details.Occurrences)
+				var occurrencesPostfix string
+				if details.Occurrences > 1 {
+					occurrencesPostfix = "s"
+				} else {
+					occurrencesPostfix = ""
+				}
+				formattedOccurrences := fmt.Sprintf(" [%d occurrence%v]", details.Occurrences, occurrencesPostfix)
 				occurrences := p.theme.Colors.White.Sprintf(formattedOccurrences)
 
 				caption := p.theme.Colors.Red.Sprint(details.Caption)
